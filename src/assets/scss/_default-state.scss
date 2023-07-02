@@ -1,0 +1,66 @@
+@use "./colors" as *;
+
+.main {
+  &__cards {
+    background-image: url("../images/bg-main-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 210px;
+
+    &-container {
+      width: min(65ch, 100% - 2rem);
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      padding-block-start: 2rem;
+    }
+
+    &-front {
+      align-self: flex-start;
+      background-image: url("../images/bg-card-front.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      //   height: 150px;
+      width: calc(100% - 3rem);
+      border-radius: 0.5rem;
+      position: relative;
+      bottom: 4rem;
+      z-index: 10;
+      box-shadow: 1px 1px 1px black;
+      padding: 1rem;
+    }
+
+    &-top {
+      background-image: url("../images/card-logo.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 35px;
+      margin-block-end: 2rem;
+    }
+
+    &-number {
+      margin-block-end: 0.5rem;
+    }
+
+    &-data {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-back {
+      align-self: flex-end;
+      background-image: url("../images/bg-card-back.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 150px;
+      width: calc(100% - 3rem);
+      border-radius: 0.5rem;
+    }
+  }
+
+  &__form-wrap,
+  &__completed {
+    width: min(65ch, 100% - 2rem);
+    margin-inline: auto;
+  }
+}
