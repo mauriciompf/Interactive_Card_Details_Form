@@ -6,6 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 210px;
+    color: $light-grayish-violet;
 
     &-container {
       width: min(65ch, 100% - 2rem);
@@ -20,13 +21,11 @@
       background-image: url("../images/bg-card-front.png");
       background-repeat: no-repeat;
       background-size: cover;
-      //   height: 150px;
-      width: calc(100% - 3rem);
+      width: 280px;
       border-radius: 0.5rem;
       position: relative;
       bottom: 4rem;
       z-index: 10;
-      box-shadow: 1px 1px 1px black;
       padding: 1rem;
     }
 
@@ -39,12 +38,22 @@
     }
 
     &-number {
-      margin-block-end: 0.5rem;
+      margin-block-end: 1rem;
+      margin-inline: auto;
+      width: 95%;
+      font-size: 1em;
+      letter-spacing: 0.1rem;
     }
 
     &-data {
       display: flex;
       justify-content: space-between;
+      font-size: 0.65em;
+
+      & > span:first-of-type {
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+      }
     }
 
     &-back {
@@ -53,8 +62,64 @@
       background-repeat: no-repeat;
       background-size: cover;
       height: 150px;
-      width: calc(100% - 3rem);
+      width: 280px;
       border-radius: 0.5rem;
+      position: relative;
+
+      & > span {
+        position: absolute;
+        right: 35px;
+        top: 68px;
+        font-size: 0.65em;
+        color: $white;
+      }
+    }
+  }
+
+  &__form-wrap {
+    margin-block-start: 7rem;
+  }
+
+  &__form {
+    &-label {
+      color: $very-dark-violet;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      font-size: 0.7em;
+    }
+
+    input[type="text"] {
+      border: 1px solid $light-grayish-violet;
+      border-radius: 0.5rem;
+      padding: 0.8rem 1rem;
+      margin-block-start: 0.5rem;
+      margin-block-end: 1rem;
+      width: 100%;
+    }
+
+    &-flex {
+      display: flex;
+      gap: 1rem;
+    }
+
+    &-box--date {
+      label {
+        display: block;
+      }
+
+      input {
+        display: inline-block;
+        width: 70px !important;
+        margin-block-end: 0 !important;
+      }
+    }
+
+    &-box--cvc {
+      margin-top: -0.4rem;
+
+      input {
+        width: 160px !important;
+      }
     }
   }
 
