@@ -66,6 +66,7 @@
 }
 .main__form-wrap {
   margin-block-start: 7rem;
+  margin-block-end: 2rem;
 }
 .main__form-label {
   color: hsl(278, 68%, 11%);
@@ -80,6 +81,16 @@
   margin-block-start: 0.5rem;
   margin-block-end: 1rem;
   width: 100%;
+}
+.main__form-box--number .card-number--error {
+  outline: 1px solid hsl(0, 100%, 66%);
+}
+.main__form-box--number p {
+  margin-block-end: 1rem;
+  position: relative;
+  color: hsl(0, 100%, 66%);
+  bottom: 0.5rem;
+  font-size: 0.9rem;
 }
 .main__form-flex {
   display: flex;
@@ -98,6 +109,16 @@
 }
 .main__form-box--cvc input {
   width: 160px !important;
+}
+.main__form-confirm {
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  padding: 0.7rem 0;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.main__completed {
+  display: none;
 }
 .main__form-wrap, .main__completed {
   width: min(65ch, 100% - 2rem);
