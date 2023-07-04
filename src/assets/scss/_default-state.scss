@@ -78,6 +78,7 @@
 
   &__form-wrap {
     margin-block-start: 7rem;
+    margin-block-end: 2rem;
   }
 
   &__form {
@@ -95,6 +96,22 @@
       margin-block-start: 0.5rem;
       margin-block-end: 1rem;
       width: 100%;
+    }
+
+    &-box--number {
+      // position: relative;
+
+      .card-number--error {
+        outline: 1px solid $primary-red;
+      }
+
+      p {
+        margin-block-end: 1rem;
+        position: relative;
+        color: $primary-red;
+        bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
     }
 
     &-flex {
@@ -121,6 +138,18 @@
         width: 160px !important;
       }
     }
+
+    &-confirm {
+      background-color: $very-dark-violet;
+      color: $white;
+      padding: 0.7rem 0;
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+  }
+
+  &__completed {
+    display: none;
   }
 
   &__form-wrap,
