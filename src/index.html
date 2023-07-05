@@ -22,8 +22,8 @@
               <span>0000 0000 0000 0000</span>
             </div>
             <div class="main__cards-data">
-              <span>Jane Appleseed</span>
-              <span>00/00</span>
+              <span class="card-name">Jane Appleseed</span>
+              <span class="card-date">00/00</span>
             </div>
           </div>
           <div class="main__cards-back">
@@ -34,18 +34,18 @@
       <div class="main__form-wrap">
         <form class="main__form">
           <label class="main__form-label" for="name">Cardholder Name</label>
-          <input type="text" id="name" placeholder="e.g. Jane Appleseed" autocomplete="off">
+          <input type="text" id="name" placeholder="e.g. Jane Appleseed" autocomplete="off" maxlength="22" max="22" min="5">
           <div data-box="number" class="main__form-box--number">
             <label class="main__form-label" for="card-number">Card Number</label>
             <input data-number="number" type="text" id="card-number" pattern="(\d{4}[ ]?){4}|\d{4}[ ]?\d{4}[ ]?" maxlength="15" max="15" min="15" placeholder="e.g. 1234 5678 9123 0000">
           </div>
           <div class="main__form-flex">
-            <div class="main__form-box--date">
+            <div data-box="date" class="main__form-box--date">
               <label class="main__form-label" for="date">Exp. Date (MM/YY)</label>
               <input data-input="mm" type="text" pattern="\d{2}" maxlength="2" min="2" max="2" id="date" placeholder="MM">
-              <input data-input="yy" type="text" pattern="\d{2}" maxlength="2" min="2" max="2" placeholder="YY">
+              <input data-input="yy" id="year" type="text" pattern="\d{2}" maxlength="2" min="2" max="2" placeholder="YY">
             </div>
-            <div class="main__form-box--cvc">
+            <div data-box="cvc" class="main__form-box--cvc">
               <label class="main__form-label" for="cvc">CVC</label>
               <input data-input="cvc" type="text" id="cvc" pattern="\d{3}" maxlength="3" min="3" max="3" placeholder="e.g. 123">
             </div>
