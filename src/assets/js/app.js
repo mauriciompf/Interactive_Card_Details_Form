@@ -1,20 +1,22 @@
-const submitButton = document.querySelector("[data-submit='submit']");
-const cardNumberInput = document.querySelector("[data-number='number']");
-const mouthInput = document.querySelector("[data-input='mm']");
-const yearInput = document.querySelector("[data-input='yy']");
-const cvcInput = document.querySelector("[data-input='cvc']");
-const boxNumber = document.querySelector("[data-box='number']");
-const errorMessage = document.createElement("p");
-errorMessage.classList.add("error-message");
+// Data cards selectors
+const frontCardName = document.querySelector(".card-name");
+const frontCardNumber = document.querySelector(".main__cards-number > span");
+const frontCardDate = document.querySelector(".card-date");
+const backCardCvC = document.querySelector(".main__cards-back > span");
 
-submitButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (cardNumberInput.value.length === 0) {
-    errorMessage.textContent = "Can't be blank";
-    boxNumber.appendChild(errorMessage);
-    cardNumberInput.classList.add("card-number--error");
-  } else {
-    errorMessage.remove();
-    cardNumberInput.classList.remove("card-number--error");
-  }
+// Inputs selectors
+const inputCardName = document.querySelector("#name");
+const inputCardNumber = document.querySelector("#card-number");
+const inputCardMouth = document.querySelector("#date");
+const inputCardYear = document.querySelector("#inputCardDate");
+const inputCardCvc = document.querySelector("#cvc");
+
+// Function to update front card
+function updateFrontCardName(value) {
+  frontCardName.textContent = value;
+}
+
+// Event listener
+inputCardName.addEventListener("keyup", (event) => {
+  updateFrontCardName(event.target.value);
 });
