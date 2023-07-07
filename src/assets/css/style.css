@@ -100,21 +100,37 @@
 .main__form-box--cvc input {
   width: 160px !important;
 }
-.main__form-confirm {
+.main__form-confirm, .main__completed-continue {
   background-color: hsl(278, 68%, 11%);
   color: hsl(0, 0%, 100%);
   padding: 0.7rem 0;
   width: 100%;
   border-radius: 0.5rem;
 }
-.main__completed {
-  display: none;
-}
 .main__form-wrap, .main__completed {
   width: min(65ch, 100% - 2rem);
   margin-inline: auto;
 }
-
+.main__completed {
+  display: none;
+  margin-block-start: 6.5rem;
+  text-align: center;
+}
+.main__completed > * {
+  margin-block-start: 3rem;
+}
+.main__completed > img {
+  margin-inline: auto;
+}
+.main__completed-title {
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.main__completed-description {
+  margin-block-start: 1rem;
+  color: hsl(279, 6%, 55%);
+}
 .error-message {
   margin-block-end: 1rem;
   position: relative;
