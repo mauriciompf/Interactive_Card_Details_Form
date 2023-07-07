@@ -132,14 +132,39 @@
     }
   }
 
-  &__completed {
-    display: none;
-  }
-
   &__form-wrap,
   &__completed {
     width: min(65ch, 100% - 2rem);
     margin-inline: auto;
+  }
+
+  &__completed {
+    display: none;
+    margin-block-start: 6.5rem;
+    text-align: center;
+
+    & > * {
+      margin-block-start: 3rem;
+    }
+
+    & > img {
+      margin-inline: auto;
+    }
+
+    &-title {
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    &-description {
+      margin-block-start: 1rem;
+      color: $dark-grayish-violet;
+    }
+
+    &-continue {
+      @extend .main__form-confirm;
+    }
   }
 }
 
