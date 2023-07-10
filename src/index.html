@@ -1,80 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-  <title>Frontend Mentor | Interactive card details form</title>
-</head>
-<body>
-  <main class="main">
-    <div class="main__container">
-      <div class="main__cards">
-        <div class="main__cards-container">
-          <div class="main__cards-front">
-            <div class="main__cards-top">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="main__container">
+        <div class="main__cards">
+          <div class="main__cards-container">
+            <div class="main__cards-front">
+              <div class="main__cards-top"></div>
+              <div class="main__cards-number">
+                <span>0000 0000 0000 0000</span>
+              </div>
+              <div class="main__cards-data">
+                <span class="card-name">Jane Appleseed</span>
+                <span class="card-date">
+                  <span class="card-mouth">00</span>/
+                  <span class="card-year">00</span>
+                </span>
+              </div>
             </div>
-            <div class="main__cards-number">
-              <span>0000 0000 0000 0000</span>
+            <div class="main__cards-back">
+              <span>000</span>
             </div>
-            <div class="main__cards-data">
-              <span class="card-name">Jane Appleseed</span>
-              <span class="card-date">
-                <span class="card-mouth">00</span>/
-                <span class="card-year">00</span>
-              </span>
-            </div>
-          </div>
-          <div class="main__cards-back">
-            <span>000</span>
           </div>
         </div>
-      </div>
-      <div class="main__form-wrap">
-        <form class="main__form">
-          <div class="main__form-box--name">
-            <label class="main__form-label" for="name">Cardholder Name</label>
-            <input type="text" id="name" placeholder="e.g. Jane Appleseed" autocomplete="off" maxlength="22" max="22" min="5">
-          </div>
-          <div data-box="number" class="main__form-box--number">
-            <label class="main__form-label" for="card-number">Card Number</label>
-            <input data-number="number" type="text" id="card-number" pattern="(\d{4}[ ]?){4}|\d{4}[ ]?\d{4}[ ]?" maxlength="16" max="16" min="16" placeholder="e.g. 1234 5678 9123 0000">
-          </div>
-          <div class="main__form-flex">
-            <div data-box="date" class="main__form-box--date">
-              <label class="main__form-label" for="date">Exp. Date (MM/YY)</label>
-              <input data-input="mm" type="text" pattern="\d{2}" maxlength="2" min="2" max="2" id="date" placeholder="MM">
-              <input data-input="yy" id="year" type="text" pattern="\d{2}" maxlength="2" min="2" max="2" placeholder="YY">
+        <div class="main__form-wrap">
+          <form class="main__form">
+            <div class="main__form-box--name">
+              <label class="main__form-label" for="name">Cardholder Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="e.g. Jane Appleseed"
+                autocomplete="off"
+                maxlength="22"
+                max="22"
+                min="5"
+              />
+              <p class="error"></p>
             </div>
-            <div data-box="cvc" class="main__form-box--cvc">
-              <label class="main__form-label" for="cvc">CVC</label>
-              <input data-input="cvc" type="text" id="cvc" pattern="\d{3}" maxlength="3" min="3" max="3" placeholder="e.g. 123">
+            <div class="main__form-box--number">
+              <label class="main__form-label" for="card-number"
+                >Card Number</label
+              >
+              <input
+                data-number="number"
+                type="text"
+                id="card-number"
+                maxlength="19"
+                max="19"
+                min="19"
+                placeholder="e.g. 1234 5678 9123 0000"
+              />
+              <p class="error"></p>
             </div>
-          </div>
-          <button class="main__form-confirm" type="button">Confirm</button>
-        </form>
-      </div>
-      <!-- Completed state start -->
-      <div class="main__completed">
-        <img src="./assets/images/icon-complete.svg" alt="">
-        <div class="main__completed-content">
-          <h2 class="main__completed-title">
-            Thank you!
-          </h2>
-          <p class="main__completed-description">
-            We've added your card details  
-          </p>
+            <div class="main__form-flex">
+              <div class="main__form-box--date">
+                <label class="main__form-label" for="date"
+                  >Exp. Date (MM/YY)</label
+                >
+                <input
+                  type="text"
+                  pattern="\d{2}"
+                  maxlength="2"
+                  min="2"
+                  max="2"
+                  id="mouth"
+                  placeholder="MM"
+                />
+                <input
+                  id="year"
+                  type="text"
+                  pattern="\d{2}"
+                  maxlength="2"
+                  min="2"
+                  max="2"
+                  placeholder="YY"
+                />
+                <p class="error"></p>
+              </div>
+              <div data-box="cvc" class="main__form-box--cvc">
+                <label class="main__form-label" for="cvc">CVC</label>
+                <input
+                  type="text"
+                  id="cvc"
+                  pattern="\d{3}"
+                  maxlength="3"
+                  min="3"
+                  max="3"
+                  placeholder="e.g. 123"
+                />
+                <p class="error"></p>
+              </div>
+            </div>
+            <button class="main__form-confirm" type="submit">Confirm</button>
+          </form>
         </div>
-        <button class="main__completed-continue" type="button">
-          Continue
-        </button>
+        <!-- Completed state start -->
+        <div class="main__completed">
+          <img src="./assets/images/icon-complete.svg" alt="" />
+          <div class="main__completed-content">
+            <h2 class="main__completed-title">Thank you!</h2>
+            <p class="main__completed-description">
+              We've added your card details
+            </p>
+          </div>
+          <button class="main__completed-continue" type="button">
+            Continue
+          </button>
+        </div>
       </div>
-    </div>
-  </main>
-  <script type="module" src="./assets/js/app.js"></script>  
-</body>
+    </main>
+    <script type="module" src="./assets/js/app.js"></script>
+  </body>
 </html>
