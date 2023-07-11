@@ -1,82 +1,124 @@
 const form = document.querySelector("form");
 
-const inputs = [
-  {
-    id: "cardName",
-    element: document.querySelector("#name"),
-    blankMessage: "Cant't be blank",
-  },
-  {
-    id: "cardNumber",
-    element: document.querySelector("#card-number"),
-    blankMessage: "Cant't be blank",
-    numberValidMessage: "Is not valid",
-  },
-  {
-    id: "cardMouth",
-    element: document.querySelector("#mouth"),
-    blankMessage: "Cant't be blank",
-  },
-  {
-    id: "cardYear",
-    element: document.querySelector("#year"),
-    blankMessage: "Cant't be blank",
-  },
-  {
-    id: "cardCvc",
-    element: document.querySelector("#cvc"),
-    blankMessage: "Cant't be blank",
-  },
-];
+const inputName = document.querySelector("#name");
+const inputNumber = document.querySelector("#card-number");
+const inputMouth = document.querySelector("#mouth");
+const inputYear = document.querySelector("#year");
+const inputCvc = document.querySelector("#cvc");
+
+let isValid = false;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  validateInputs();
+  validateForm();
+
+  if (isValid) {
+    displayCompleted();
+  }
 });
 
-function showError(input) {
-  const inputControl = input.element.parentElement;
+function showError(input, errorMessage) {
+  const inputControl = input.parentElement;
   const displayError = inputControl.querySelector(".error");
-  displayError.textContent = input.blankMessage;
+  displayError.textContent = errorMessage;
 
   inputControl.classList.add("error");
   inputControl.classList.remove("success");
 }
 
 function showSuccess(input) {
-  const inputControl = input.element.parentElement;
+  const inputControl = input.parentElement;
   const displayError = inputControl.querySelector(".error");
   displayError.textContent = "";
 
   inputControl.classList.add("success");
   inputControl.classList.remove("error");
+  isValid = true;
 }
 
-function validateInputs() {
-  inputs.forEach((input) => {
-    if (!input.element.value) {
-      showError(input);
-    } else {
-      showSuccess(input);
-    }
-  });
+function isValidCardNumber(input) {
+  const rx = /^(\d{4}[-. ]?){4}|\d{4}[-. ]?\d{6}[-. ]?\d{5}$/g;
+  return rx.test(input);
 }
 
-inputs[1].element.addEventListener("input", () => {
-  const formatedNumber = formatNumber(
-    inputs[1].element.value.replaceAll(" ", "")
-  );
-  inputs[1].element.value = formatedNumber;
+function isValidDate(input) {
+  const rx = /\d{2}/g;
+  return rx.test(input);
+}
+
+function validateForm() {
+  const emptyMessage = "Can't be blank!";
+
+  if (!inputName.value) {
+    showError(inputName, emptyMessage);
+  } else {
+    showSuccess(inputName);
+  }
+
+  if (!inputNumber.value) {
+    showError(inputNumber, emptyMessage);
+  } else if (!isValidCardNumber(inputNumber.value)) {
+    showError(inputNumber, "It's not valid!");
+  } else {
+    showSuccess(inputNumber);
+  }
+
+  if (!inputMouth.value) {
+    showError(inputMouth, emptyMessage);
+  } else if (!isValidDate(inputMouth.value)) {
+    showError(inputMouth, "It's not valid!");
+  } else if (parseInt(inputMouth.value) > 12) {
+    showError(inputMouth, "It's not valid!");
+  } else {
+    showSuccess(inputMouth);
+  }
+
+  if (!inputYear.value) {
+    showError(inputYear, emptyMessage);
+  } else if (!isValidDate(inputYear.value)) {
+    showError(inputYear, "It's not valid!");
+  } else {
+    showSuccess(inputYear);
+  }
+
+  if (!inputCvc.value) {
+    showError(inputCvc, emptyMessage);
+  } else {
+    showSuccess(inputCvc);
+  }
+}
+
+inputNumber.addEventListener("input", () => {
+  const formattedNumber = formatNumber(inputNumber.value.replaceAll(" ", ""));
+  inputNumber.value = formattedNumber;
 });
 
 function formatNumber(number) {
-  const formated = [];
-  for (let i = 0; i < number.length; i++) {
-    if (i !== 0 && i % 4 === 0) {
-      formated.push(" ");
-    }
-    formated.push(number[i]);
-  }
-  return formated.join("");
+  return number.replace(/\d{4}(?=\d)/g, "$& ");
 }
+
+const continueButton = document.querySelector(".main__completed-continue");
+const completedBlock = document.querySelector(".main__completed");
+const cardsBlock = document.querySelector(".main__form-wrap");
+
+const displayCardName = document.querySelector(".card-name");
+const displayCardNumber = document.querySelector(".main__cards-number > span");
+const displayCardMouth = document.querySelector(".card-mouth");
+const displayCardYear = document.querySelector(".card-year");
+const displayCardCvc = document.querySelector(".main__cards-back > span");
+
+function displayCompleted() {
+  completedBlock.style.display = "block";
+  cardsBlock.style.display = "none";
+  displayCardName.textContent = inputName.value;
+  displayCardNumber.textContent = inputNumber.value;
+  displayCardMouth.textContent = inputMouth.value;
+  displayCardYear.textContent = inputYear.value;
+  displayCardCvc.textContent = inputCvc.value;
+}
+
+continueButton.addEventListener("click", () => {
+  completedBlock.style.display = "none";
+  cardsBlock.style.display = "block";
+});
