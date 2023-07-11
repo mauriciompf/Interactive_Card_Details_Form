@@ -98,6 +98,10 @@
       width: 100%;
     }
 
+    input:invalid {
+      outline: $primary-red solid 1px;
+    }
+
     &-flex {
       display: flex;
       gap: 1rem;
@@ -180,18 +184,18 @@
   }
 }
 
-.error {
+.error > p {
   margin-block-end: 1rem;
   position: relative;
   color: $primary-red;
   bottom: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .error > input {
-  outline: 1px solid $primary-red;
+  border: 1px solid $primary-red !important;
 }
 
 .success > input {
-  outline: none;
+  border: 1px solid $light-grayish-violet;
 }
