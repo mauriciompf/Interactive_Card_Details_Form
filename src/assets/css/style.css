@@ -82,6 +82,9 @@
   margin-block-end: 1rem;
   width: 100%;
 }
+.main__form input:invalid {
+  outline: hsl(0, 100%, 66%) solid 1px;
+}
 .main__form-flex {
   display: flex;
   gap: 1rem;
@@ -140,20 +143,20 @@
   margin-block-start: 1rem;
   color: hsl(279, 6%, 55%);
 }
-.error {
+.error > p {
   margin-block-end: 1rem;
   position: relative;
   color: hsl(0, 100%, 66%);
   bottom: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .error > input {
-  outline: 1px solid hsl(0, 100%, 66%);
+  border: 1px solid hsl(0, 100%, 66%) !important;
 }
 
 .success > input {
-  outline: none;
+  border: 1px solid hsl(270, 3%, 87%);
 }
 
 * {
