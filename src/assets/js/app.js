@@ -49,41 +49,51 @@ function isValidDate(input) {
 
 function validateForm() {
   const emptyMessage = "Can't be blank!";
+  isValid = true;
 
   if (!inputName.value) {
     showError(inputName, emptyMessage);
+    isValid = false;
   } else {
     showSuccess(inputName);
   }
 
   if (!inputNumber.value) {
     showError(inputNumber, emptyMessage);
+    isValid = false;
   } else if (!isValidCardNumber(inputNumber.value)) {
     showError(inputNumber, "It's not valid!");
+    isValid = false;
   } else {
     showSuccess(inputNumber);
   }
 
   if (!inputMouth.value) {
     showError(inputMouth, emptyMessage);
+    isValid = false;
   } else if (!isValidDate(inputMouth.value)) {
     showError(inputMouth, "It's not valid!");
+    isValid = false;
   } else if (parseInt(inputMouth.value) > 12) {
     showError(inputMouth, "It's not valid!");
+    isValid = false;
   } else {
     showSuccess(inputMouth);
   }
 
   if (!inputYear.value) {
     showError(inputYear, emptyMessage);
+    isValid = false;
   } else if (!isValidDate(inputYear.value)) {
     showError(inputYear, "It's not valid!");
+    isValid = false;
   } else {
     showSuccess(inputYear);
   }
 
   if (!inputCvc.value) {
     showError(inputCvc, emptyMessage);
+    isValid = false;
   } else {
     showSuccess(inputCvc);
   }
