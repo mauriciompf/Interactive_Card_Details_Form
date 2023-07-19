@@ -1,3 +1,16 @@
+.main {
+  height: 100%;
+}
+.main__container {
+  height: 100%;
+}
+@media screen and (min-width: 786px) {
+  .main__container {
+    display: flex;
+    height: 100vh;
+    gap: 5rem;
+  }
+}
 .main__cards {
   background-image: url("../images/bg-main-mobile.png");
   background-repeat: no-repeat;
@@ -5,12 +18,27 @@
   height: 210px;
   color: hsl(270, 3%, 87%);
 }
+@media screen and (min-width: 786px) {
+  .main__cards {
+    height: 100vh;
+    width: 70vh;
+    position: relative;
+  }
+}
 .main__cards-container {
   width: min(65ch, 100% - 2rem);
   margin-inline: auto;
   display: flex;
   flex-direction: column-reverse;
   padding-block-start: 2rem;
+}
+@media screen and (min-width: 786px) {
+  .main__cards-container {
+    position: relative;
+    right: -9rem;
+    flex-direction: column;
+    top: 10rem;
+  }
 }
 .main__cards-front {
   align-self: flex-start;
@@ -23,6 +51,11 @@
   bottom: 4rem;
   z-index: 10;
   padding: 1rem;
+}
+@media screen and (min-width: 786px) {
+  .main__cards-front {
+    bottom: 1rem;
+  }
 }
 .main__cards-top {
   background-image: url("../images/card-logo.svg");
@@ -123,6 +156,11 @@
   width: min(65ch, 100% - 2rem);
   margin-inline: auto;
 }
+@media screen and (min-width: 786px) {
+  .main__form-wrap, .main__completed {
+    width: min(35ch, 100% - 2rem);
+  }
+}
 .main__completed {
   display: none;
   margin-block-start: 6.5rem;
@@ -168,6 +206,7 @@
 body {
   font-size: 18px;
   font-family: "Space Grotesk", sans-serif;
+  height: 100vh;
 }
 
 button {
