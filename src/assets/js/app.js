@@ -108,27 +108,27 @@ const inputCvc = document.querySelector("#cvc");
 //   return number.replace(/\d{4}(?=\d)/g, "$& ");
 // }
 
-const continueButton = document.querySelector(".main__completed-continue");
-const completedBlock = document.querySelector(".main__completed");
-const cardsBlock = document.querySelector(".main__form-wrap");
+// const continueButton = document.querySelector(".main__completed-continue");
+// const completedBlock = document.querySelector(".main__completed");
+// const cardsBlock = document.querySelector(".main__form-wrap");
 
-const displayCardName = document.querySelector(".card-name");
-const displayCardNumber = document.querySelector(".main__cards-number > span");
-const displayCardMouth = document.querySelector(".card-mouth");
-const displayCardYear = document.querySelector(".card-year");
-const displayCardCvc = document.querySelector(".main__cards-back > span");
+// const displayCardName = document.querySelector(".card-name");
+// const displayCardNumber = document.querySelector(".main__cards-number > span");
+// const displayCardMouth = document.querySelector(".card-mouth");
+// const displayCardYear = document.querySelector(".card-year");
+// const displayCardCvc = document.querySelector(".main__cards-back > span");
 
-function displayCompleted() {
-  completedBlock.style.display = "block";
-  cardsBlock.style.display = "none";
-  displayCardName.textContent = inputName.value;
-  displayCardNumber.textContent = inputNumber.value;
-  displayCardMouth.textContent = inputMouth.value;
-  displayCardYear.textContent = inputYear.value;
-  displayCardCvc.textContent = inputCvc.value;
-}
+// function displayCompleted() {
+//   completedBlock.style.display = "block";
+//   cardsBlock.style.display = "none";
+//   displayCardName.textContent = inputName.value;
+//   displayCardNumber.textContent = inputNumber.value;
+//   displayCardMouth.textContent = inputMouth.value;
+//   displayCardYear.textContent = inputYear.value;
+//   displayCardCvc.textContent = inputCvc.value;
+// }
 
-continueButton.addEventListener("click", () => {
-  completedBlock.style.display = "none";
-  cardsBlock.style.display = "block";
-});
+// continueButton.addEventListener("click", () => {
+//   completedBlock.style.display = "none";
+//   cardsBlock.style.display = "block";
+// });
