@@ -4,7 +4,7 @@
 .main__container {
   height: 100%;
 }
-@media screen and (min-width: 786px) {
+@media screen and (min-width: 1104px) {
   .main__container {
     display: flex;
     height: 100vh;
@@ -18,11 +18,12 @@
   height: 210px;
   color: hsl(270, 3%, 87%);
 }
-@media screen and (min-width: 786px) {
+@media screen and (min-width: 1104px) {
   .main__cards {
     height: 100vh;
     width: 70vh;
     position: relative;
+    background-image: url("../images/bg-main-desktop.png");
   }
 }
 .main__cards-container {
@@ -32,12 +33,14 @@
   flex-direction: column-reverse;
   padding-block-start: 2rem;
 }
-@media screen and (min-width: 786px) {
+@media screen and (min-width: 1104px) {
   .main__cards-container {
+    width: 100%;
     position: relative;
     right: -9rem;
     flex-direction: column;
     top: 10rem;
+    padding-block-start: 0;
   }
 }
 .main__cards-front {
@@ -52,9 +55,15 @@
   z-index: 10;
   padding: 1rem;
 }
-@media screen and (min-width: 786px) {
+@media screen and (min-width: 1104px) {
   .main__cards-front {
     bottom: 1rem;
+    width: 345px;
+    left: 5rem;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 .main__cards-top {
@@ -70,6 +79,12 @@
   width: 95%;
   font-size: 1em;
   letter-spacing: 0.1rem;
+}
+@media screen and (min-width: 1104px) {
+  .main__cards-number {
+    font-size: 1.35em;
+    width: auto;
+  }
 }
 .main__cards-data {
   display: flex;
@@ -90,6 +105,12 @@
   border-radius: 0.5rem;
   position: relative;
 }
+@media screen and (min-width: 1104px) {
+  .main__cards-back {
+    height: 185px;
+    width: 345px;
+  }
+}
 .main__cards-back > span {
   position: absolute;
   right: 35px;
@@ -97,9 +118,22 @@
   font-size: 0.65em;
   color: hsl(0, 0%, 100%);
 }
+@media screen and (min-width: 1104px) {
+  .main__cards-back > span {
+    right: 45px;
+    top: 85px;
+    letter-spacing: 0.1rem;
+    font-size: 0.75em;
+  }
+}
 .main__form-wrap {
   margin-block-start: 7rem;
   margin-block-end: 2rem;
+}
+@media screen and (min-width: 1104px) {
+  .main__form-wrap {
+    margin-block-start: 9rem;
+  }
 }
 .main__form-label {
   color: hsl(278, 68%, 11%);
@@ -119,8 +153,13 @@
   outline: hsl(0, 100%, 66%) solid 1px;
 }
 .main__form-flex {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+@media screen and (min-width: 1104px) {
+  .main__form-flex {
+    grid-template-columns: 2fr 3fr;
+  }
 }
 .main__form input[data-number=number] {
   text-transform: uppercase;
@@ -142,8 +181,13 @@
 .main__form-box--cvc {
   margin-top: -0.4rem;
 }
+@media screen and (min-width: 1104px) {
+  .main__form-box--cvc {
+    grid-column: 2/6;
+  }
+}
 .main__form-box--cvc input {
-  width: 160px !important;
+  width: 100% !important;
 }
 .main__form-confirm, .main__completed-continue {
   background-color: hsl(278, 68%, 11%);
@@ -156,7 +200,7 @@
   width: min(65ch, 100% - 2rem);
   margin-inline: auto;
 }
-@media screen and (min-width: 786px) {
+@media screen and (min-width: 1104px) {
   .main__form-wrap, .main__completed {
     width: min(35ch, 100% - 2rem);
   }
@@ -182,7 +226,7 @@
   color: hsl(279, 6%, 55%);
 }
 .error > p {
-  margin-block-end: 1rem;
+  margin-block-end: 0.5rem;
   position: relative;
   color: hsl(0, 100%, 66%);
   bottom: 0.5rem;
