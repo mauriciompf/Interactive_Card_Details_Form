@@ -25,6 +25,7 @@
       height: 100vh;
       width: 70vh;
       position: relative;
+      background-image: url("../images/bg-main-desktop.png");
     }
 
     &-container {
@@ -35,10 +36,12 @@
       padding-block-start: 2rem;
 
       @include desktop {
+        width: 100%;
         position: relative;
         right: -9rem;
         flex-direction: column;
         top: 10rem;
+        padding-block-start: 0;
       }
     }
 
@@ -56,6 +59,12 @@
 
       @include desktop {
         bottom: 1rem;
+        width: 345px;
+        left: 5rem;
+        height: 185px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
     }
 
@@ -73,6 +82,11 @@
       width: 95%;
       font-size: 1em;
       letter-spacing: 0.1rem;
+
+      @include desktop {
+        font-size: 1.35em;
+        width: auto;
+      }
     }
 
     &-data {
@@ -96,12 +110,24 @@
       border-radius: 0.5rem;
       position: relative;
 
+      @include desktop {
+        height: 185px;
+        width: 345px;
+      }
+
       & > span {
         position: absolute;
         right: 35px;
         top: 68px;
         font-size: 0.65em;
         color: $white;
+
+        @include desktop {
+          right: 45px;
+          top: 85px;
+          letter-spacing: 0.1rem;
+          font-size: 0.75em;
+        }
       }
     }
   }
@@ -109,6 +135,10 @@
   &__form-wrap {
     margin-block-start: 7rem;
     margin-block-end: 2rem;
+
+    @include desktop {
+      margin-block-start: 9rem;
+    }
   }
 
   &__form {
@@ -133,8 +163,12 @@
     }
 
     &-flex {
-      display: flex;
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: 3fr 3fr;
+
+      @include desktop {
+        grid-template-columns: 2fr 3fr;
+      }
     }
 
     input[data-number="number"] {
@@ -164,8 +198,17 @@
     &-box--cvc {
       margin-top: -0.4rem;
 
+      @include desktop {
+        grid-column: 2 / 6;
+      }
+
       input {
-        width: 160px !important;
+        width: 100% !important;
+        // width: 160px !important;
+
+        // @include desktop {
+        //   width: 100% !important;
+        // }
       }
     }
 
@@ -219,7 +262,7 @@
 }
 
 .error > p {
-  margin-block-end: 1rem;
+  margin-block-end: 0.5rem;
   position: relative;
   color: $primary-red;
   bottom: 0.5rem;
