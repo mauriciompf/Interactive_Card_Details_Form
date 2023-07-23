@@ -23,7 +23,7 @@
 
     @include desktop {
       height: 100vh;
-      width: 70vh;
+      width: 440px;
       position: relative;
       background-image: url("../images/bg-main-desktop.png");
     }
@@ -36,7 +36,7 @@
       padding-block-start: 2rem;
 
       @include desktop {
-        width: 100%;
+        // width: 100%;
         position: relative;
         right: -9rem;
         flex-direction: column;
@@ -60,7 +60,7 @@
       @include desktop {
         bottom: 1rem;
         width: 345px;
-        left: 5rem;
+        // left: 5rem;
         height: 185px;
         display: flex;
         flex-direction: column;
@@ -134,7 +134,11 @@
 
   &__form-wrap {
     margin-block-start: 7rem;
-    margin-block-end: 2rem;
+    padding-block-end: 2rem;
+
+    &.active {
+      display: none;
+    }
 
     @include desktop {
       margin-block-start: 9rem;
@@ -142,6 +146,10 @@
   }
 
   &__form {
+    & > span {
+      display: block;
+    }
+
     &-label {
       color: $very-dark-violet;
       letter-spacing: 0.1rem;
@@ -180,6 +188,17 @@
     }
 
     &-box--date {
+      @include mobile {
+        &-wrap {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+
+          .error {
+            grid-column: 1 / 3;
+          }
+        }
+      }
+
       label {
         display: block;
       }
@@ -191,7 +210,8 @@
       }
 
       .error {
-        bottom: -0.4rem;
+        bottom: -0.2rem;
+        margin-block-end: 0.9rem;
       }
     }
 
@@ -204,11 +224,6 @@
 
       input {
         width: 100% !important;
-        // width: 160px !important;
-
-        // @include desktop {
-        //   width: 100% !important;
-        // }
       }
     }
 
@@ -236,6 +251,10 @@
     margin-block-start: 6.5rem;
     text-align: center;
 
+    &.active {
+      display: block;
+    }
+
     & > * {
       margin-block-start: 3rem;
     }
@@ -261,11 +280,11 @@
   }
 }
 
-.error > p {
+.error > span {
   margin-block-end: 0.5rem;
   position: relative;
   color: $primary-red;
-  bottom: 0.5rem;
+  bottom: 0.9rem;
   font-size: 0.8rem;
 }
 
@@ -274,5 +293,5 @@
 }
 
 .success > input {
-  border: 1px solid $light-grayish-violet;
+  border: 1px solid $very-dark-violet !important;
 }
